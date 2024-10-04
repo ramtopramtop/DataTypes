@@ -1,19 +1,11 @@
 'use strict';
 
 const countTypesInArray = (arr) => {
-  let count = {};
-  for (element of arr) {
-    if (typeof (element) === 'number') {
-      count.number += 1;
-    }
-    else {
-      if (typeof (element) === 'string') {
-        count.string += 1;
-      }
-      else {
-        count.boolean += 1;
-      }
-    }
+  const count = {};
+  for (const element of arr) {
+    const type = typeof element;
+    const quantity = count[type] || 0;
+    count[type] = quantity + 1;
   }
   return count;
 };
